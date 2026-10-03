@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepraj Goat Farm | Barotha & Breeding Goats</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f8f4;
+      color: #222;
+    }
+
+    /* HEADER */
+    header {
+      background: #173d25;
+      color: white;
+      padding: 15px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #f4c542;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #f4c542;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 520px;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1524024973431-2ad916746881?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 30px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #f4c542;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #f4c542;
+      color: #172819;
+    }
+
+    .btn-primary:hover {
+      background: #ffd95d;
+    }
+
+    .btn-green {
+      background: #1e8e3e;
+      color: white;
+    }
+
+    .btn-green:hover {
+      background: #176f30;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      color: #173d25;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 15px;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .about-text h2 {
+      color: #173d25;
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    /* FEATURES */
+    .features {
+      background: #edf4ec;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
+    }
+
+    .feature .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      color: #173d25;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* FILTER */
+    .filter-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    .filter-box input,
+    .filter-box select {
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      min-width: 220px;
+      outline: none;
+    }
+
+    /* GOAT CARDS */
+    .goat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .goat-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: .3s;
+    }
+
+    .goat-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .goat-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .goat-info {
+      padding: 20px;
+    }
+
+    .goat-info h3 {
+      color: #173d25;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e9f3e8;
+      color: #236333;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .goat-info p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+      color: #c28a00;
+      margin: 12px 0;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #173d25;
+      color: white;
+    }
+
+    .contact .section-title h2,
+    .contact .section-title p {
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,.08);
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 15px;
+      color: #f4c542;
+    }
+
+    .contact-card p {
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+
+    .contact-card a {
+      color: white;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0c2114;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .goat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 6px;
+        font-size: 13px;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+
+      .feature-grid,
+      .goat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo"> <img src=""  width="32" height="32"> Deepraj <span>Goat Farm</span></div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#goats">Goats</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <h1>Deepraj <span>Goat Farm</span></h1>
+
+      <p>
+        Quality Barotha goats, strong breeding bucks and healthy breeding does.
+        We focus on healthy animals, good care and reliable breeding stock.
+      </p>
+
+      <a href="#goats" class="btn btn-primary">
+        View Goats
+      </a>
+
+      <a href="#contact" class="btn btn-green">
+        Contact Farm
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="about">
+
+      <img
+        src="https://images.unsplash.com/photo-1524024973431-2ad916746881?auto=format&fit=crop&w=1000&q=80"
+        alt="Goats at Deepraj Goat Farm"
+      >
+
+      <div class="about-text">
+
+        <h2>About Deepraj Goat Farm</h2>
+
+        <p>
+          Welcome to Deepraj Goat Farm. We provide quality goats for
+          breeding and livestock purposes.
+        </p>
+
+        <p>
+          Our farm focuses on maintaining healthy animals with proper
+          feeding, care and management.
+        </p>
+
+        <p>
+          Our collection includes Barotha-type goats, strong breeding
+          bucks and healthy breeding does.
+        </p>
+
+        <a href="#contact" class="btn btn-green">
+          Contact Us
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="features">
+
+    <div class="section-title">
+
+      <h2>Why Choose Our Farm?</h2>
+
+      <p>
+        Quality livestock with proper care
+      </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <div class="icon">??</div>
+        <h3>Quality Goats</h3>
+        <p>
+          Carefully selected goats suitable for breeding and livestock.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">??</div>
+        <h3>Strong Bucks</h3>
+        <p>
+          Strong breeding bucks selected for size, structure and health.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">??</div>
+        <h3>Healthy Does</h3>
+        <p>
+          Healthy breeding does maintained with proper care.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">??</div>
+        <h3>Good Care</h3>
+        <p>
+          Proper feeding, clean surroundings and regular farm management.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GOATS -->
+  <section id="goats">
+
+    <div class="section-title">
+
+      <h2>Our Goats</h2>
+
+      <p>
+        Browse our available breeding goats
+      </p>
+
+    </div>
+
+
+    <!-- SEARCH/FILTER -->
+    <div class="filter-box">
+
+      <input
+        type="text"
+        id="search"
+        placeholder=" Search goat..."
+        onkeyup="filterGoats()"
+      >
+
+      <select id="category" onchange="filterGoats()">
+
+        <option value="all">
+          All Goats
+        </option>
+
+        <option value="buck">
+          Strong Bucks
+        </option>
+
+        <option value="doe">
+          Breeding Does
+        </option>
+
+        <option value="barotha">
+          Barotha
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="goat-grid" id="goatGrid">
+
+
+      <!-- GOAT 1 -->
+      <div class="goat-card" data-category="buck barotha">
+
+        <img
+          src="https://images.unsplash.com/photo-1524024973431-2ad916746881?auto=format&fit=crop&w=800&q=80"
+          alt="Barotha Strong Buck"
+        >
+
+        <div class="goat-info">
+
+          <span class="badge">
+            BAROTHA • BUCK
+          </span>
+
+          <h3>Barotha Strong Buck</h3>
+
+          <p>
+            Strong male goat suitable for breeding.
+          </p>
+
+          <p>
+            <strong>Age:</strong> 18 Months
+          </p>
+
+          <p>
+            <strong>Status:</strong> Available
+          </p>
+
+          <div class="price">
+            ?45,000
+          </div>
+
+          <a
+            class="btn btn-green"
+            href="https://wa.me/919755598804?text=Hello%20Deepraj%20Goat%20Farm,%20I%20am%20interested%20in%20the%20Barotha%20Strong%20Buck."
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- GOAT 2 -->
+      <div class="goat-card" data-category="doe">
+
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Healthy Breeding Doe"
+        >
+
+        <div class="goat-info">
+
+          <span class="badge">
+            BREEDING DOE
+          </span>
+
+          <h3>Healthy Breeding Doe</h3>
+
+          <p>
+            Healthy female goat suitable for breeding.
+          </p>
+
+          <p>
+            <strong>Age:</strong> 14 Months
+          </p>
+
+          <p>
+            <strong>Status:</strong> Available
+          </p>
+
+          <div class="price">
+            ?25,000
+          </div>
+
+          <a
+            class="btn btn-green"
+            href="https://wa.me/919755598804text=Hello%20Deepraj%20Goat%20Farm,%20I%20am%20interested%20in%20the%20Breeding%20Doe."
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- GOAT 3 -->
+      <div class="goat-card" data-category="buck">
+
+        <img
+          src="https://cdn.britannica.com/41/119041-050-8B84B093/goat.jpg?w=300"
+          alt="Powerful Breeding Buck"
+        >
+
+        <div class="goat-info">
+
+          <span class="badge">
+            STRONG BUCK
+          </span>
+
+          <h3>Powerful Breeding Buck</h3>
+
+          <p>
+            Well-built male goat for breeding purposes.
+          </p>
+
+          <p>
+            <strong>Age:</strong> 20 Months
+          </p>
+
+          <p>
+            <strong>Status:</strong> Available
+          </p>
+
+          <div class="price">
+            ?50,000
+          </div>
+
+          <a
+            class="btn btn-green"
+            href="https://wa.me/919755598804?text=Hello%20Deepraj%20Goat%20Farm,%20I%20am%20interested%20in%20the%20Powerful%20Breeding%20Buck."
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- GOAT 4 -->
+      <div class="goat-card" data-category="barotha buck">
+
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Barotha Male Goat"
+        >
+
+        <div class="goat-info">
+
+          <span class="badge">
+            BAROTHA • MALE
+          </span>
+
+          <h3>Barotha Goat</h3>
+
+          <p>
+            Healthy male goat with strong body structure.
+          </p>
+
+          <p>
+            <strong>Age:</strong> 16 Months
+          </p>
+
+          <p>
+            <strong>Status:</strong> Available
+          </p>
+
+          <div class="price">
+            ?38,000
+          </div>
+
+          <a
+            class="btn btn-green"
+            href="https://wa.me/919755598804?text=Hello%20Deepraj%20Goat%20Farm,%20I%20am%20interested%20in%20the%20Barotha%20Male%20Goat."
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- GOAT 5 -->
+      <div class="goat-card" data-category="doe">
+
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Breeding Female Goat"
+        >
+
+        <div class="goat-info">
+
+          <span class="badge">
+            BREEDING DOE
+          </span>
+
+          <h3>Premium Breeder Male Goat</h3>
+
+          <p>
+            Healthy female selected for breeding.
+          </p>
+
+          <p>
+            <strong>Age:</strong> 15 Months
+          </p>
+
+          <p>
+            <strong>Status:</strong> Available
+          </p>
+
+          <div class="price">
+            ?30,000
+          </div>
+
+          <a
+            class="btn btn-green"
+            href="https://wa.me/919755598804?text=Hello%20Deepraj%20Goat%20Farm,%20I%20am%20interested%20in%20the%20Premium%20Breeding%20Doe."
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- GOAT 6 -->
+      <div class="goat-card" data-category="buck">
+
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Young Strong Buck"
+        >
+
+        <div class="goat-info">
+
+          <span class="badge">
+            YOUNG BUCK
+          </span>
+
+          <h3>Child Goat</h3>
+
+          <p>
+           Healthy Animal suitable for future breeding.
+          </p>
+
+          <p>
+            <strong>Age:</strong> 12 Months
+          </p>
+
+          <p>
+            <strong>Status:</strong> Available
+          </p>
+
+          <div class="price">
+            ?28,000
+          </div>
+
+          <a
+            class="btn btn-green"
+            href="https://wa.me/919755598804?text=Hello%20Deepraj%20Goat%20Farm,%20I%20am%20interested%20in%20the%20Young%20Strong%20Buck."
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="section-title">
+
+      <h2>Contact Deepraj Goat Farm</h2>
+
+      <p>
+        Contact us for goat availability and farm visits.
+      </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <h3>?? Contact Details</h3>
+
+        <p>
+          <strong>Owner:</strong> Deepraj
+        </p>
+
+        <p>
+          <strong>Phone:</strong>
+          <a href="tel:+919755598804">
+            +91 9755598804
+          </a>
+        </p>
+
+        <p>
+          <strong>WhatsApp:</strong>
+          <a
+            href="https://wa.me/919755598804"
+            target="_blank"
+          >
+            Chat on WhatsApp
+          </a>
+        </p>
+
+        <p>
+          <strong>Location:</strong>
+          Your Farm Location, India
+        </p>
+
+      </div>
+
+
+      <div class="contact-card">
+
+        <h3>?? Farm Categories</h3>
+
+        <p>? Barotha Goats</p>
+
+        <p>? Strong Breeding Bucks</p>
+
+        <p>? Healthy Breeding Does</p>
+
+        <p>? Young Goats</p>
+
+        <p>? Livestock Consultation</p>
+
+        <a
+          href="https://wa.me/919755598804?text=Hello%20Deepraj%20Goat%20Farm"
+          target="_blank"
+          class="btn btn-primary"
+        >
+          ?? WhatsApp Now
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © <span id="year"></span>
+      <strong>Deepraj Goat Farm</strong>.
+      All Rights Reserved.
+    </p>
+
+    <p style="margin-top:8px;">
+      Quality Goats • Strong Bucks • Healthy Breeding Does
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // Search + Category Filter
+    function filterGoats() {
+
+      const search =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+      const category =
+        document.getElementById("category")
+        .value;
+
+      const goats =
+        document.querySelectorAll(".goat-card");
+
+
+      goats.forEach(function(goat) {
+
+        const text =
+          goat.innerText.toLowerCase();
+
+        const categories =
+          goat.dataset.category;
+
+        const searchMatch =
+          text.includes(search);
+
+        const categoryMatch =
+          category === "all" ||
+          categories.includes(category);
+
+        if (searchMatch && categoryMatch) {
+
+          goat.style.display = "block";
+
+        } else {
+
+          goat.style.display = "none";
+
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
